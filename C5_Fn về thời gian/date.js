@@ -52,7 +52,9 @@ console.log(birthday.getSeconds());
 console.log(birthday.getMilliseconds());
 // in ra timestamp
 console.log(birthday.getTime()); // 778698000000
-// Các hàm set trong Date
+/*
+Các hàm set trong Date
+ */
 console.log(`My birthday: ${birthday}`);
 birthday.setFullYear(1993);
 birthday.setMonth(10);
@@ -82,22 +84,28 @@ console.log(birthday.getUTCMinutes());
 console.log(birthday.getUTCSeconds());
 // in ra mili giây
 console.log(birthday.getUTCMilliseconds());
-// date string
+/*
+date string
+ */
 console.log(now.toDateString()); // Fri May 14 2021
 console.log(now.toTimeString()); // 00:22:00 GMT+0700 (Indochina Time)
 console.log(now.toLocaleDateString()); // m/dd/yyyy -> 5/14/2021
-// 14/5/2021
 console.log(now.toLocaleDateString("vi-VI")); // 14/5/2021
 console.log(now.toISOString()); // 2021-05-13T17:24:04.286Z
-// 14/05/2021
+/*
+// BT: in ra nn: 14/05/2021
 // input: Fri May 14 2021 00:26:21 GMT+0700 (Indochina Time)
+*/
 const myTime = new Date("Fri May 14 2021 00:26:21 GMT+0700 (Indochina Time)"); // 14/5/2021
 const myYear = myTime.getFullYear(); // 2021
 const myMonth = myTime.getMonth() + 1; // 5
 const myDate = myTime.getDate(); // 14
 const prefixMonth = myMonth < 10 ? "0" : "";
 console.log(`${myDate}/${prefixMonth}${myMonth}/${myYear}`);
-// setTimeout vs setInterval
+/*
+setTimeout (thực hiện 1 chức năng nào đó sau 1 khoảng time nhất định)
+setInterval (time chạy liên tục)
+*/
 // const timer1 = setTimeout(function () {
 //   alert("call me after 3 seconds");
 // }, 3000);
