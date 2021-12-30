@@ -44,8 +44,11 @@ const random2 = random.sort(function (a, b) {
   if (a > b) return 1; // Sắp xếp theo tăng dần
   if (a < b) return -1; // Sắp xếp theo giảm dần
 });
-const random3 = random.sort((a, b) => (a > b ? 1 : -1)); //ternary operator:condition ?something : something else
+//ternary operator:condition ?something : something else
+const random3 = random.sort((a, b) => (a > b ? 1 : -1)); //sort tăng dần thì a > b return 1
 console.log(random3);
+const random4 = random.sort((a, b) => (a > b ? -1 : 1)); //sort giảm dần thì a > b return -1
+console.log(random4);
 
 /* find(fn): nó sẽ trả về phần tử tìm thấy đầu tiên trong mảng thoả điều kiện nào đó */
 console.log("-----array.find-----");
@@ -58,12 +61,6 @@ console.log(findYourNumber); // 9999
 console.log("-----array.findIndex-----");
 const findYourIndex = numbers.findIndex((element) => element < 0); // Nếu ko tìm thấy --> trả ra kết quả là -1
 console.log(findYourIndex);
-/*
-// Sort bổ sung
-// const random = [1, 9999, 10000000, 5, 09];
-*/
-const random4 = random.sort((a, b) => (a > b ? -1 : 1)); //sort giảm dần thì a > b return -1
-console.log(random4);
 
 /* map(): duyệt qua từng phần tử trong mảng và trả ra một mảng mới mà không thay đổi mảng ban đầu */
 console.log("-----array.map-----");
@@ -73,32 +70,40 @@ const listNumber = [1, 2, 3, 4, 5];
 const listNumberDouble = listNumber.map(function (value, index, array) {
   return value * 2;
 });
-// [2, 4, 6, 8, 10]
-console.log(listNumberDouble);
+console.log(listNumberDouble); // [2, 4, 6, 8, 10]
+
+/* forEach(callback(value, index, array)):duyệt qua mỗi ptu của mảng vs thực hiện 1 action nào đó */
 console.log("-----array.forEach-----");
-// .forEach(callback(value, index, array))
 const listNumberTripple = listNumber.forEach((value, index, array) => {
   return value * 3;
 });
 console.log(listNumberTripple);
-// Hãy cho biết sự khác nhau giữa forEach và map ?
+
+/*  Hãy cho biết sự khác nhau giữa forEach và map ? (CÂU HỎI HAY PHỎNG VẤN JS)
+  - map thì có return còn forEach thì ko có
+  - map trả ra 1 mảng mới dựa vào mảng ban đầu còn forEach thì ko
+  - forEach ko có return -> chạy mãi -> thường dùng ở trong DOM
+ */
+
+/*  filter():Dùng để filter(sàng lọc) các phần tử trong mảng thoả điều kiện nào đó */
 console.log("-----array.filter-----");
-// Dùng để filter(sàng lọc) các phần tử trong mảng thoả điều kiện nào đó
 // .filter(callback(value, index, array))
 // const listNumber = [1, 2, 3, 4, 5];
 const greaterThanThree = listNumber.filter((item) => item > 30);
 console.log(greaterThanThree);
+
+/* some():Trả về true khi thoả 1 điều kiện và ngược lại trả vê false khi không thoả điều kiện nào cả */
 console.log("-----array.some-----");
-// Trả về true khi thoả 1 điều kiện và ngược lại trả vê false khi không thoả điều kiện nào cả
 const someNumber = listNumber.some((value) => value > 3);
 console.log(someNumber);
+
+ /* every():Chỉ trả về true khi tất cả điều kiện đều đúng, ngược lại chỉ cần 1 cái sai là nó sẽ return false */
 console.log("-----array.every-----");
-// Chỉ trả về true khi tất cả điều kiện đều đúng, ngược lại chỉ cần 1 cái sai là nó sẽ return false
 const everyNumber = listNumber.every((value) => value > 3);
 console.log(everyNumber);
-// true or false
+
+/* reduce(): gom các phần tử trong mảng lại thành 1*/
 console.log("-----array.reduce-----");
-// gom các phần tử trong mảng lại thành 1
 // .reduce((a, b) => {}, initialize value);
 const totalNumber = listNumber.reduce(function (previousValue, currentValue) {
   console.log(previousValue, currentValue);
